@@ -48,6 +48,9 @@ func CreateBlock(tx []*Transaction, prevHash []byte, chainLength int) *Block {
 	return &newBlock
 } 
 
+func Genesis(coinbase *Transaction) *Block {
+	return CreateBlock([]*Transaction{coinbase}, []byte{}, 0)
+}
 
 func HandleErr(err error) {
 	if err != nil {

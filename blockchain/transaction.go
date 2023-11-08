@@ -27,12 +27,18 @@ func (tx *Transaction) SetID() {
 
 func NewTransaction(amount int, sender, recipient string) *Transaction {
 	tx := Transaction{
-		ID: []byte{},
 		Amount: amount,
 		Sender:	sender,
 		Recipient: recipient,
 	}
-	tx.SetID()
+	// tx.SetID()
 
 	return &tx
+}
+
+func CoinbaseTx() *Transaction { 
+	tx := NewTransaction(100, "unknown", "takanome-dev")
+	tx.SetID()
+
+	return tx
 }
